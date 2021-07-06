@@ -6,15 +6,15 @@
                     <h3>{{ titulo }}</h3>
                     <span *ngIf="submitted && crearEvento.invalid">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
                     <form class="mt-5" [formGroup]="crearEvento" (ngSubmit)="agregarEvento()">
-                        <div>
-                            <div class="col">
-                                <input type="text" class="form-control form-control-lg mt-4" formControlName="nombre"
-                                    placeholder="Nombre">
-                            </div>
-                            <div class="col">
-                                <input type="datetime-local" class="form-control form-control-lg mt-4" formControlName="fecha"
-                                    placeholder="Fecha">
-                            </div>
+                        <input type="text" class="form-control form-control-lg mt-4" formControlName="nombre" placeholder="Nombre" required>
+                        <input type="datetime-local" class="form-control form-control-lg mt-4" formControlName="fecha" placeholder="Fecha" required>
+                        <div class="form-chek mt-4">
+                            <input type="radio" class="form-check-input" value="Publico" id="publico" name="tipoEvento" formControlName="tipoEvento" checked>
+                            <label class="form-check-label" for="publico">Público</label>
+                        </div>
+                        <div class="form-chek">
+                            <input type="radio" class="form-check-input mt-2" value="Privado" id="privado" name="tipoEvento" formControlName="tipoEvento">
+                            <label class="form-check-label" for="privado">Privado</label>
                         </div>
                         <div class="mt-4">
                             <button type="text" class="btn btn-secondary btn-lg me-3"

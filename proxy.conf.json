@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+      "target": "https://discord.com",
+      "secure": true,
+      "logLevel": "debug"
+    }
+  }

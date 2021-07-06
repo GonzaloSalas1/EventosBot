@@ -14,6 +14,9 @@ import { LoginButtonComponent } from './components/login-button/login-button.com
 import { ListaEventosComponent } from './components/lista-eventos/lista-eventos.component';
 import { CrearEventoComponent } from './components/crear-evento/crear-evento.component';
 import { EditarEventoComponent } from './components/editar-evento/editar-evento.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { ListaServersComponent } from './components/lista-servers/lista-servers.component';
 
 
 @NgModule({
@@ -22,7 +25,9 @@ import { EditarEventoComponent } from './components/editar-evento/editar-evento.
     LoginButtonComponent,
     ListaEventosComponent,
     CrearEventoComponent,
-    EditarEventoComponent
+    EditarEventoComponent,
+    LoginComponent,
+    ListaServersComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +35,7 @@ import { EditarEventoComponent } from './components/editar-evento/editar-evento.
     AngularFireModule.initializeApp(env.firebase),
     AngularFirestoreModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AuthModule.forRoot({
       ...env.auth,
     })

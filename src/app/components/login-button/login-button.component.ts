@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { OauthService } from 'src/app/services/oauth.service';
+import { DISCORD_LOGIN_URL } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login-button',
@@ -9,25 +10,27 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class LoginButtonComponent implements OnInit {
 
-  usuarios: any[] = [];
+  url = DISCORD_LOGIN_URL;
 
-  constructor(public auth: AuthService) { }
+  isLoggedIn:boolean;
+
+  userIcon: string = "";
+
+  userName:string = "";
+
+  constructor(public _oauth: OauthService) {
+    this.isLoggedIn = localStorage.getItem('token') ? true : false;
+  }
 
   ngOnInit(): void {
-    this.auth.user$.subscribe(data => {
-      console.log(data);
+    this._oauth.getUser().subscribe(res => {
+      this.userIcon = res.avatar ? `https://cdn.discordapp.com/icons/${res.id}/${res.avatar}` : 'https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png';
+      this.userName = res.username;
     })
-      fetch(`https://discord.com/api/v8/users/@me`, {
-        headers: {
-          Authorization: `Bearer 6xRsmccX2NWQ42dwYeZgGSMa4Kn5V4`
-        }
-      })
-        .then(user => user.json())
-        .then(user => console.log(user))
-        .catch(err => console.log(err))
   }
 
-  loginWithRedirect(): void{
-    this.auth.loginWithRedirect();
+  loginConDiscord = () => {
+    window.location.href = this.url;
   }
+
 }

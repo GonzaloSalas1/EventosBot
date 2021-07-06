@@ -7,15 +7,21 @@
             <table *ngIf="eventos.length > 0" class="table table-striped mt-5">
                 <thead>
                   <tr>
+                    <th>idCreador</th>
+                    <th>idServidor</th>
                     <th>Nombre</th>
                     <th>Fecha</th>
+                    <th>tipoEvento</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let evento of eventos">
+                        <td>{{ evento.idCreador }}</td>
+                        <td>{{ evento.idServidor }}</td>
                         <td>{{ evento.nombre }}</td>
                         <td>{{ evento.fecha }}</td>
+                        <td>{{ evento.tipoEvento }}</td>
                         <td>
                             <i class="me-2" [routerLink]="['/editar-evento/', evento.id]">Editar</i>
                             <i (click)="eliminarEvento(evento.id)">Borrar</i>

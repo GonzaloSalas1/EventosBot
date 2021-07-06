@@ -30,7 +30,7 @@ export class ListaEventosComponent implements OnInit {
 
   eliminarEvento(id: string) {
     this._eventoService.eliminarEvento(id).then(() => {
-      console.log('empelado eliminado con exito');
+      console.log('Evento eliminado con exito');
     }).catch(error => {
       console.log(error);
     })
