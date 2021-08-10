@@ -1,0 +1,54 @@
+
+h1{
+   display: inline-block;
+   font-family: 'Courier New', Courier, monospace;
+   margin-right: 30px;
+   margin-top: 10px;
+}
+
+h2{
+   margin-top: 5%;
+   text-align: center;
+   color: black;
+}
+
+p{
+   text-align: center;
+   
+   color: black;
+}
+
+.botones-evento {
+   justify-content: center;
+   padding-bottom: 20px;
+}
+
+.contenedor{
+   background-size: cover;
+   padding-bottom: 20px;
+}
+
+.card {
+   width: 18rem;
+   border: 1px solid #4449;
+}
+
+.card-img-top {
+   border-bottom: 1px solid #5559;
+   height: 215px;
+}
+
+.eventos-flex {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   gap: 40px;
+   margin-top: 30px;
+}
+
+.titulo-div {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 20px;
+}

@@ -1,0 +1,25 @@
+._navbar {
+    display: flex;
+    background-color: #212529;
+    padding: 7px 15px;
+    align-items: center;
+}
+
+.icon-navbar {
+    height: 50px;
+    width: 50px;
+}
+
+.login-btn {
+    margin-left: auto;
+}
+
+.navbar-link-button:hover {
+    color: #7885B1 !important;
+}
+
+@media screen and (max-width: 800px) {
+    .navbar-link-button {
+        display: none;
+    }
+}

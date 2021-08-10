@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
         localStorage.setItem('token', data.access_token);
 
-        window.location.href = '/';
+        window.location.href = '/principal';
 
       });
 

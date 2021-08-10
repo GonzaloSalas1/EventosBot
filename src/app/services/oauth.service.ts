@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { DISCORD_TOKEN_URL,
   CLIENT_ID,
   CLIENT_SECRET,
   REDIRECT_URI } from '../../environments/environment';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -36,12 +36,6 @@ export class OauthService {
     return this.http.post(this.token_url, data);
   }
 
-  /* isLoggedIn(): Observable<any> {
-    const isLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true); 
-    isLogged.next(localStorage.getItem('token') ? true : false);
-    return isLogged.asObservable();
-  } */
-
   getUser(): Observable<any> {
     const headers = {
       Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -65,6 +59,10 @@ export class OauthService {
       .append('refresh_token', localStorage.getItem('refresh_token') || '')
     this.http.post(this.token_url, data)
     window.location.href = '/';
+  }
+
+  isLoggedIn(): boolean {
+    return localStorage.getItem('token') ? true : false;
   }
 
 }

@@ -6,15 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EventoService {
-
+    
   constructor(private firestore: AngularFirestore) { }
-
-  agregarEvento(evento: any): Promise<any> {
-    return this.firestore.collection('eventos').add(evento);
-  }
 
   getEventos(): Observable<any> {
     return this.firestore.collection('eventos', ref => ref.orderBy('fecha', 'asc')).snapshotChanges();
+  }
+
+  agregarEvento(evento: any): Promise<any> {
+    return this.firestore.collection('eventos').add(evento);
   }
 
   eliminarEvento(id: string): Promise<any> {

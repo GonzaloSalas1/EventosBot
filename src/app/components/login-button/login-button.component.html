@@ -1,15 +1,16 @@
-<ng-container *ngIf="isLoggedIn; else loggedOut">
-    <div class="dropdown me-3">
+<ng-container *ngIf="_oauth.isLoggedIn(); else loggedOut">
+    <div class="dropdown">
         <a class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"><img size="25" height="25" width="25" class="rounded-circle img-fluid profile-picture me-2" src="{{userIcon}}">{{userName}}</a>
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-            <li><a routerLink="/" href="#" class="dropdown-item">Inicio</a></li>
-            <li><a routerLink="/lista-eventos" href="#" class="dropdown-item">Lista de Eventos</a></li>
-            <li><a href="#" class="dropdown-item">...</a></li>
-            <li><a (click)="_oauth.logOut()" href="#" class="dropdown-item">Cerrar sesion</a></li>
+            <li><a routerLink="/principal" href="#" class="dropdown-item">Inicio</a></li>
+            <li><a routerLink="/calendario" href="#" class="dropdown-item">Eventos públicos</a></li>
+            <li><a routerLink="/mis-eventos" href="#" class="dropdown-item">Mis eventos</a></li>
+            <li><a routerLink="/comandos" href="#" class="dropdown-item">Comandos</a></li>
+            <li><a (click)="_oauth.logOut()" href="#" class="dropdown-item text-danger">Cerrar sesion</a></li>
         </ul>
     </div>
 </ng-container>
 
 <ng-template #loggedOut>
-    <div class="btn btn-light me-3" (click)="loginConDiscord()">Log in</div>
+    <div class="btn btn-light me-3" (click)="loginConDiscord()">Login</div>
 </ng-template>
